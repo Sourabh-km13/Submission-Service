@@ -14,7 +14,7 @@ class SubmissionService{
             throw {"message":"not able to create submission"}
         }
         const response = SubmissionQueueProducer(data);
-        return {queueResponse:response,submissiong}
+        return {queueResponse:response,submission}
     }
 }
 export default SubmissionService

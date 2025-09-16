@@ -4,5 +4,5 @@ async function pingRequest(req ,res){
     return res.send(response)
 }
 async function createSubmission(req , rej){
-    const response = await this.testService.addSubmission
+    const response = await this.testService.addSubmission(req.body)
 }
