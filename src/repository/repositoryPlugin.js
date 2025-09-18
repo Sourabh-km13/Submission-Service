@@ -1,8 +1,7 @@
-import {fp} from 'fastify-plugin'
+import fastifyPlugin from 'fastify-plugin';
 import SubmissionRepository from './submissionRepository.js';
 
 async function repositoryPlugin (fastify , options){
-    fastify.decorate('submissionRepository',new SubmissionRepository())
+    await fastify.decorate('submissionRepository',new SubmissionRepository())
 }
-export default fp(repositoryPlugin);
- 
+export default fastifyPlugin(repositoryPlugin);

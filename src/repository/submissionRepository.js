@@ -1,4 +1,4 @@
-import submission from "../models/submissionModel";
+import submission from "../models/submissionModel.js";
 
 class SubmissionRepository{
     constructor(){
@@ -6,6 +6,7 @@ class SubmissionRepository{
     }
     async createSubmission(submission){
         const response = await this.submissionModel.create(submission)
+        console.log("added to model" , submission)
         return response;
     }
 }

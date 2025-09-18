@@ -1,4 +1,4 @@
-import SubmissionQueueProducer from "../producer/SubmissionProducer"
+import SubmissionQueueProducer from "../producer/SubmissionProducer.js"
 
 
 class SubmissionService{
@@ -9,11 +9,11 @@ class SubmissionService{
         return 'pong'
     }
     async addSubmission(data){
-        const submission = this.submissionRepository.createSubmission(data)
+        const submission = await this.submissionRepository.createSubmission(data)
         if(!submission){
             throw {"message":"not able to create submission"}
         }
-        const response = SubmissionQueueProducer(data);
+        const response = await SubmissionQueueProducer(data);
         return {queueResponse:response,submission}
     }
 }

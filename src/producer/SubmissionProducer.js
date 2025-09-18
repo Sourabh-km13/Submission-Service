@@ -1,4 +1,4 @@
-import SubmissionQueue from "../queues/SubmissionQueue";
+import SubmissionQueue from "../queues/SubmissionQueue.js";
 
 
 export default async function SubmissionQueueProducer(

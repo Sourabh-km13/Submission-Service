@@ -1,17 +1,18 @@
 import Fastify from 'fastify'
-import {fp} from 'fastify-plugin'
-import v1Routes from './routes/v1.mjs'
-import { routes } from './routes'
+
 import repositoryPlugin from './repository/repositoryPlugin.js'
 import servicePlugin from './services/servicePlugin.js'
+import routes from './routes/index.js'
+import fastifyPlugin from 'fastify-plugin'
 
-const fastify = Fastify({ logger: true })
 
-async function app(){
-    fastify.register(repositoryPlugin)
-    fastify.register(servicePlugin)
-    fastify.register(routes) 
+
+
+async function app(fastify , options){
+    await fastify.register(routes) 
+    await fastify.register(repositoryPlugin)
+    await fastify.register(servicePlugin)
 }
 
-export default fp(app)
+export default fastifyPlugin(app)
 

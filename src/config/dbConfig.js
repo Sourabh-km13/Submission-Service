@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
-import config from "./index.js"
+import { ATLAS_DB_URL } from "./index.js";
+
 
 async function connectToDb(){
     try {
-        await mongoose.connect(config.ATLAS_DB_URL)
+        await mongoose.connect(ATLAS_DB_URL)
+        console.log("db connected")
     } catch (error) {
         console.log("unable to connect to server",error)
     }

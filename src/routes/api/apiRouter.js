@@ -1,6 +1,5 @@
+import { pingRequest , createSubmission } from "../../controllers/submissionController.js"
 export default async function apiRoutes(fastify, options) {
-  fastify.get('/hello', async () => {
-    return { message: 'Hello from API ' }
-  })
-
+  await fastify.get('/hello', pingRequest)
+  await fastify.post("/submit", createSubmission)
 }
