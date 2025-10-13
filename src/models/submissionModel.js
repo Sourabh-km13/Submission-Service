@@ -22,6 +22,6 @@ const submissionSchema = new mongoose.Schema({
         default:"pending",
     }
 })
-const submission = mongoose.model('Submission',submissionSchema)
+export const submission = mongoose.model('Submission',submissionSchema)
 
-export default submission
+
