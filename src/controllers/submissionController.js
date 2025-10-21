@@ -4,8 +4,11 @@ async function pingRequest(req ,res){
     return res.send(response)
 }
 async function createSubmission(req , res){
-    console.log("controller", req.body)
     const response = await this.testService.addSubmission(req.body)
     return res.send(response)
 }
-export {pingRequest,createSubmission}
+async function getAllSubmissions(req , res){
+    const response = await this.testService.getAllSubmissions();
+    return res.send(response);
+}
+export {pingRequest,createSubmission,getAllSubmissions}
